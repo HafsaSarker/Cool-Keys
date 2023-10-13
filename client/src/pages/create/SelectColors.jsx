@@ -1,5 +1,7 @@
 import React, { useContext } from "react";
 import { SelectionsContext } from "../../context/SelectionsContext";
+import { palette } from "../../utils/palette";
+import { createKeebs } from "../../utils/createKeebs";
 
 function SelectColors() {
   const { selections, setSelections } = useContext(SelectionsContext);
@@ -10,8 +12,6 @@ function SelectColors() {
       color: { keyGroup: selections.color.keyGroup, swatch: val },
       switchType: selections.switchType,
     });
-    // console.log(selections);
-    // console.log(val);
   };
 
   const setKeyGroup = (val) => {
@@ -23,21 +23,8 @@ function SelectColors() {
       },
       switchType: selections.switchType,
     });
-    console.log(selections);
   };
 
-  const palette = [
-    "amber-200",
-    "lime-200",
-    "blue-100",
-    "purple-200",
-    "rose-300",
-    "red-400",
-    "orange-400",
-    "yellow-400",
-    "blue-400",
-    "indigo-400",
-  ];
   return (
     <div className="flex flex-col justify-center items-center mt-16">
       <h1 className="font-semibold text-xl mb-5">Colors</h1>
@@ -58,7 +45,7 @@ function SelectColors() {
       <h1 className="font-semibold text-xl my-5">Key Groups</h1>
       <div className="flex gap-5">
         <button
-          className="border rounded-sm border-gray-400 p-2 text-sm text-gray-500"
+          className="border rounded-sm border-gray-400 p-2 text-sm text-gray-500 focus:ring-2"
           value="Alphanumeric"
           onClick={() => setKeyGroup("Alphanumeric")}
         >
@@ -70,7 +57,7 @@ function SelectColors() {
           />
         </button>
         <button
-          className="border rounded-sm border-gray-400 p-2 text-sm text-gray-500"
+          className="border rounded-sm border-gray-400 p-2 text-sm text-gray-500 focus:ring-2"
           value="Modifiers"
           onClick={() => setKeyGroup("Modifiers")}
         >
@@ -82,7 +69,7 @@ function SelectColors() {
           />
         </button>
         <button
-          className="border rounded-sm border-gray-400 p-2 text-sm text-gray-500"
+          className="border rounded-sm border-gray-400 p-2 text-sm text-gray-500 focus:ring-2"
           onClick={() => setKeyGroup("All Keys")}
         >
           All Keys
@@ -94,7 +81,7 @@ function SelectColors() {
         </button>
       </div>
       <button
-        onClick={() => console.log(selections)}
+        onClick={() => createKeebs(selections)}
         className="mt-10 inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-gray-900 border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-100"
       >
         Create Keyboard

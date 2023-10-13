@@ -9,7 +9,8 @@ const createDBTable = async () => {
       id SERIAL PRIMARY KEY,
       name VARCHAR(255) NOT NULL,
       keyboard VARCHAR(255) NOT NULL,
-      color JSON NOT NULL,
+      swatch VARCHAR(255) NOT NULL,
+      keyGroup VARCHAR(255) NOT NULL,
       switchType VARCHAR(255) NOT NULL,
       image VARCHAR(255) NOT NULL
     )

@@ -6,6 +6,7 @@ import keyboardsRouter from "./routes/keyboards.js";
 const app = express();
 
 app.use(cors());
+app.use(express.json());
 app.use("/keyboards", keyboardsRouter);
 
 app.get("/", (req, res) => {

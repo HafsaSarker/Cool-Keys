@@ -5,6 +5,6 @@ const router = express.Router();
 
 router.get("/", KeebsController.getAllKeebs);
 router.get("/:id", KeebsController.getKeebsById);
-router.post("/", KeebsController.createCustomKeeb);
+router.post("/create", KeebsController.createCustomKeeb);
 
 export default router;
