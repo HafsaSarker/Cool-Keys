@@ -13,7 +13,7 @@ function Hero() {
             keyboard setup up a notch or two.
           </p>
           <a
-            href="#"
+            href="/keyboards"
             className="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-indigo-500 hover:bg-indigo-600 focus:ring-4 focus:ring-indigo-300"
           >
             Customize Now
@@ -31,7 +31,7 @@ function Hero() {
             </svg>
           </a>
           <a
-            href="#"
+            href="/all"
             className="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-gray-900 border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-100"
           >
             Take Inspiration

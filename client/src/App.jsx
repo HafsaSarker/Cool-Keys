@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import SelectKeyboard from "./pages/create/SelectKeyboard";
 import SelectSwitch from "./pages/create/SelectSwitch";
 import SelectColors from "./pages/create/SelectColors";
+import AllCreations from "./pages/view/AllCreations";
 
 function App() {
   let element = useRoutes([
@@ -22,6 +23,10 @@ function App() {
     {
       path: "/colors",
       element: <SelectColors />,
+    },
+    {
+      path: "/all",
+      element: <AllCreations />,
     },
   ]);
   return (
