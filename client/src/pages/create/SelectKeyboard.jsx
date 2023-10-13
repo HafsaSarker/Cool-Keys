@@ -1,12 +1,15 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { SelectionsContext } from "../../context/SelectionsContext";
 
 function SelectKeyboard() {
-  const [keyboard, setKeyboard] = useState("");
+  const { selections, setSelections } = useContext(SelectionsContext);
+
+  console.log(selections);
   const navigate = useNavigate();
 
-  const handleClick = (val) => {
-    setKeyboard(val);
+  const selectKeyboard = (val) => {
+    setSelections({ keyboard: val, color: "", switchType: "" });
 
     navigate("/switches");
   };
@@ -25,7 +28,11 @@ function SelectKeyboard() {
             V3 87-Key Custom Mechanical Keyboard
           </h2>
           <h4 className="mt-2 ">$180.99</h4>
-          <button className="px-5 py-2 mt-2 text-gray-900 border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-100">
+          <button
+            onClick={(e) => selectKeyboard(e.target.value)}
+            value="V3 87-Key Custom Mechanical Keyboard"
+            className="px-5 py-2 mt-2 text-gray-900 border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-100"
+          >
             Select
           </button>
         </div>
@@ -40,7 +47,11 @@ function SelectKeyboard() {
             VP3 61-Key Custom Mechanical Keyboard - White Case
           </h2>
           <h4 className="mt-2 ">$175.99</h4>
-          <button className="px-5 py-2 mt-2 text-gray-900 border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-100">
+          <button
+            onClick={(e) => selectKeyboard(e.target.value)}
+            value="VP3 61-Key Custom Mechanical Keyboard - White Case"
+            className="px-5 py-2 mt-2 text-gray-900 border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-100"
+          >
             Select
           </button>
         </div>
@@ -55,7 +66,11 @@ function SelectKeyboard() {
             VP3 61-Key Custom Mechanical Keyboard
           </h2>
           <h4 className="mt-2 ">$175.99</h4>
-          <button className="px-5 py-2 mt-2 text-gray-900 border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-100">
+          <button
+            onClick={(e) => selectKeyboard(e.target.value)}
+            value="VP3 61-Key Custom Mechanical Keyboard"
+            className="px-5 py-2 mt-2 text-gray-900 border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-100"
+          >
             Select
           </button>
         </div>
@@ -70,7 +85,11 @@ function SelectKeyboard() {
             VP3 62-Key ISO Custom Mechanical Keyboard
           </h2>
           <h4 className="mt-2 ">$179.99</h4>
-          <button className="px-5 py-2 mt-2 text-gray-900 border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-100">
+          <button
+            onClick={(e) => selectKeyboard(e.target.value)}
+            value="VP3 62-Key ISO Custom Mechanical Keyboard"
+            className="px-5 py-2 mt-2 text-gray-900 border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-100"
+          >
             Select
           </button>
         </div>
