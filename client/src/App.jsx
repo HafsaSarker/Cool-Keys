@@ -18,7 +18,7 @@ function App() {
     // },
   ]);
   return (
-    <div className="h-full">
+    <div className="h-full overflow-y-scroll">
       <Nav />
       {element}
     </div>
