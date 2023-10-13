@@ -5,18 +5,21 @@ import { SelectionsContext } from "../../context/SelectionsContext";
 function SelectKeyboard() {
   const { selections, setSelections } = useContext(SelectionsContext);
 
-  console.log(selections);
   const navigate = useNavigate();
 
   const selectKeyboard = (val) => {
-    setSelections({ keyboard: val, color: "", switchType: "" });
+    setSelections({
+      keyboard: val,
+      color: { keyGroup: "", swatch: "" },
+      switchType: "",
+    });
 
     navigate("/switches");
   };
 
   return (
     <div className="h-full flex justify-start items-center text-center flex-col pt-16">
-      <h2 className="font-semibold text-3xl">1st: Choose Your Keyboard</h2>
+      <h2 className="font-semibold text-3xl">Choose Your Keyboard</h2>
       <div className="flex flex-row gap-6 flex-wrap items-center justify-center">
         <div className="flex flex-col h-96 w-96 items-center">
           <img

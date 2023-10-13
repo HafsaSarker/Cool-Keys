@@ -5,7 +5,10 @@ export const SelectionsContext = createContext();
 export const SelectionsProvider = ({ children }) => {
   const [selections, setSelections] = useState({
     keyboard: "",
-    color: "",
+    color: {
+      keyGroup: "",
+      swatch: "",
+    },
     switchType: "",
   });
 
