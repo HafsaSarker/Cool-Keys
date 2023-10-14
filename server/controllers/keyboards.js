@@ -12,7 +12,15 @@ const getAllKeebs = async (req, res) => {
 };
 
 const getKeebsById = async (req, res) => {
-  res.send("get keeb by id");
+  try {
+    const id = req.params.id;
+    const selectQuery = `SELECT name, keyboard, swatch, keyGroup, switchType, image FROM CustomItem WHERE id = ${id}`;
+    const results = await pool.query(selectQuery);
+
+    res.status(200).json(results.rows[0]);
+  } catch (error) {
+    res.status(409).json({ error: error.message });
+  }
 };
 
 const createCustomKeeb = async (req, res) => {
@@ -32,8 +40,37 @@ const createCustomKeeb = async (req, res) => {
   }
 };
 
+const deleteKeeb = async (req, res) => {
+  try {
+    const id = parseInt(req.params.id);
+    const results = await pool.query("DELETE FROM CustomItem WHERE id = $1", [
+      id,
+    ]);
+    res.status(200).json(results.rows[0]);
+  } catch (error) {
+    res.status(409).json({ error: error.message });
+  }
+};
+
+const updateKeeb = async (req, res) => {
+  try {
+    const id = parseInt(req.params.id);
+    const { name, keyboard, color, image, switchType } = req.body;
+    const results = await pool.query(
+      `
+      UPDATE CustomItem SET name = $1, keyboard = $2, swatch = $3, keygroup = $4, switchtype = $5, image = $6 WHERE id = $7`,
+      [name, keyboard, color.swatch, color.keyGroup, switchType, image, id]
+    );
+    res.status(200).json(results.rows[0]);
+  } catch (error) {
+    res.status(409).json({ error: error.message });
+  }
+};
+
 export default {
   getAllKeebs,
   getKeebsById,
   createCustomKeeb,
+  deleteKeeb,
+  updateKeeb,
 };

@@ -13,12 +13,12 @@ export default function AllCreations() {
     };
     fetchKeebs();
   }, []);
-  console.log(keebs);
+
   return (
     <div className="flex flex-col justify-center items-center mt-16">
-      <h1>All Customized Keebs</h1>
+      <h1 className="text-2xl font-bold">All Customized Keebs</h1>
 
-      <div className="border-8 w-full px-20">
+      <div className="w-full px-20">
         {keebs && keebs.length > 0 ? (
           keebs.map((item, index) => (
             <Keeb

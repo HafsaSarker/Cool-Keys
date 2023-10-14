@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { SelectionsContext } from "../../context/SelectionsContext";
 import { palette } from "../../utils/palette";
-import { createKeebs } from "../../utils/createKeebs";
+import { createKeebs } from "../../utils/keebsCRUD";
 
 function SelectColors() {
   const { selections, setSelections } = useContext(SelectionsContext);
