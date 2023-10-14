@@ -9,9 +9,8 @@ function SelectKeyboard() {
 
   const selectKeyboard = (val) => {
     setSelections({
+      ...selections,
       keyboard: val,
-      color: { keyGroup: "", swatch: "" },
-      switchType: "",
     });
 
     navigate("/switches");
@@ -20,6 +19,25 @@ function SelectKeyboard() {
   return (
     <div className="h-full flex justify-start items-center text-center flex-col pt-16">
       <h2 className="font-semibold text-3xl">Choose Your Keyboard</h2>
+      <div className="flex flex-col mt-6 justify-start items-start w-96">
+        <label
+          htmlFor="name"
+          className="block mb-2 text-sm font-medium text-gray-900"
+        >
+          Name your keeb:
+        </label>
+        <input
+          onChange={(e) =>
+            setSelections({ ...selections, name: e.target.value })
+          }
+          type="text"
+          id="name"
+          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 focus:outline-none"
+          placeholder="sugarCube"
+          required
+        ></input>
+      </div>
+
       <div className="flex flex-row gap-6 flex-wrap items-center justify-center">
         <div className="flex flex-col h-96 w-96 items-center">
           <img

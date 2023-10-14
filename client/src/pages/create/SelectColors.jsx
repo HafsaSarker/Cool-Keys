@@ -8,6 +8,7 @@ function SelectColors() {
 
   const setColorSwatch = (val) => {
     setSelections({
+      name: selections.name,
       keyboard: selections.keyboard,
       color: { keyGroup: selections.color.keyGroup, swatch: val },
       switchType: selections.switchType,
@@ -16,6 +17,7 @@ function SelectColors() {
 
   const setKeyGroup = (val) => {
     setSelections({
+      name: selections.name,
       keyboard: selections.keyboard,
       color: {
         keyGroup: val,
@@ -28,6 +30,7 @@ function SelectColors() {
   return (
     <div className="flex flex-col justify-center items-center mt-16">
       <h1 className="font-semibold text-xl mb-5">Colors</h1>
+
       <div className="flex gap-5 w-96 flex-wrap justify-center">
         {palette.map((item, index) => (
           <div key={index} className="h-20 flex flex-col text-center text-xs">

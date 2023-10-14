@@ -1,9 +1,11 @@
 import { api_path } from "./api_path";
-import axios from "axios";
 import { renderKeyboard } from "./renderKeyboard";
 
 export const createKeebs = async (data) => {
-  data["name"] = "ex";
+  if (data["name"] == "") {
+    data["name"] = "Nameless_Keeb";
+  }
+
   data["image"] = renderKeyboard(data.keyboard);
   const options = {
     method: "POST",
@@ -13,7 +15,6 @@ export const createKeebs = async (data) => {
     body: JSON.stringify(data),
   };
 
-  const res = await fetch("http://localhost:3001/keyboards/create", options);
-  console.log(res.json());
-  //   //   window.location = "/";
+  fetch(`${api_path}/create`, options);
+  window.location = "/";
 };

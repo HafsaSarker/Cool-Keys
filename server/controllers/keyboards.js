@@ -27,6 +27,20 @@ const getKeebsById = async (req, res) => {
 };
 
 const createCustomKeeb = async (req, res) => {
+  // try {
+  //   const { name, keyboard, color, image, switchType } = req.body;
+  //   const results = await pool.query(
+  //     `
+  //         INSERT INTO CustomItem (name, keyboard, swatch, keyGroup, switchType, image)
+  //         VALUES($1, $2, $3, $4, $5, $6)
+  //         RETURNING *`,
+  //     [name, keyboard, color.swatch, color.keyGroup, switchType, image]
+  //   );
+
+  //   res.status(201).json(results.rows[0]);
+  // } catch (error) {
+  //   res.status(409).json({ error: error.message });
+  // }
   try {
     const { name, keyboard, color, image, switchType } = req.body;
     const results = await pool.query(

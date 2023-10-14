@@ -16,11 +16,9 @@ function SelectSwitch() {
 
   const selectSwitch = (val) => {
     setSelections({
-      keyboard: selections.keyboard,
-      color: { keyGroup: "", swatch: "" },
+      ...selections,
       switchType: val,
     });
-
     navigate("/colors");
   };
 
