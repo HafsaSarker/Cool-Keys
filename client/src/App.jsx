@@ -5,6 +5,8 @@ import SelectKeyboard from "./pages/create/SelectKeyboard";
 import SelectSwitch from "./pages/create/SelectSwitch";
 import SelectColors from "./pages/create/SelectColors";
 import AllCreations from "./pages/view/AllCreations";
+import OneKeeb from "./pages/view/OneKeeb";
+import EditKeeb from "./pages/edit/EditKeeb";
 
 function App() {
   let element = useRoutes([
@@ -27,6 +29,14 @@ function App() {
     {
       path: "/all",
       element: <AllCreations />,
+    },
+    {
+      path: "/all/:id",
+      element: <OneKeeb />,
+    },
+    {
+      path: "/edit/:id",
+      element: <EditKeeb />,
     },
   ]);
   return (

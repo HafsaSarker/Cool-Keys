@@ -1,5 +1,41 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { api_path } from "../../utils/api_path";
+import Keeb from "../../components/Keeb";
 
 export default function AllCreations() {
-  return <div>AllCreations</div>;
+  const [keebs, setKeebs] = useState(null);
+
+  useEffect(() => {
+    const fetchKeebs = async () => {
+      const response = await fetch(api_path);
+      const data = await response.json();
+      setKeebs(data);
+    };
+    fetchKeebs();
+  }, []);
+  console.log(keebs);
+  return (
+    <div className="flex flex-col justify-center items-center mt-16">
+      <h1>All Customized Keebs</h1>
+
+      <div className="border-8 w-full px-20">
+        {keebs && keebs.length > 0 ? (
+          keebs.map((item, index) => (
+            <Keeb
+              key={item.id}
+              id={item.id}
+              image={item.image}
+              name={item.name}
+              keyboard={item.keyboard}
+              keyGroup={item.keygroup}
+              swatch={item.swatch}
+              switchType={item.switchtype}
+            />
+          ))
+        ) : (
+          <h3>{"No keebs Yet 😞"}</h3>
+        )}
+      </div>
+    </div>
+  );
 }
