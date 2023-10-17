@@ -1,8 +1,8 @@
-# WEB103 Project 4 - _Name of App Here_
+# WEB103 Project 4 - coolkeebs
 
-Submitted by: **Your name here**
+Submitted by: **hafsa sarker**
 
-About this web app: **App description here**
+About this web app: **Customize a dream keyboard that you might not be able to afford**
 
 Time spent: **way too much XD** hours
 
